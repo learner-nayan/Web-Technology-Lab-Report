@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>HTML FORM</h3>
+
+<h4 id="message" name="message"></h4>
+
+<div>
+  <form action="/wt-lab1/form.html">
+    <label for="username">Userame</label>
+    <input type="text" id="username" name="username" placeholder="Your name.." required>
+
+    <label for="username">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your name.." required>
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Nepal</option>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Your password.." required>
+
+    <label for="cpassword">Confirm Password</label>
+    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password.." required>
+  
+    <input id="submit" type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+
+<script>
+    let submit = document.querySelector('#submit')
+    submit.addEventListener('click', function () {
+        let username = document.querySelector('#username').value.trim()
+        let email= document.querySelector('#email').value.trim()
+        let country = document.querySelector('#country').value
+        let password= document.querySelector('#password').value.trim()
+        let cpassword = document.querySelector('#cpassword').value.trim()
+
+        if(password !== cpassword){
+            sessionStorage.setItem('validationMsg', 'Invalid input! Both password must be same.')
+            document.getElementById('message').style.color = 'red'
+        }else{
+            sessionStorage.setItem('validationMsg', 'Form validation successful.')
+            document.getElementById('message').style.color = 'green'
+        }
+    })
+
+    if(sessionStorage.getItem('validationMsg')){
+        let validationMsg = sessionStorage.getItem('validationMsg')
+        document.getElementById('message').innerHTML = validationMsg
+    }
+
+    sessionStorage.removeItem('validationMsg')
+
+</script>
+
+</html>
+
+
