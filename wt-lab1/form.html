@@ -59,7 +59,7 @@ div {
 <h4 id="message" name="message"></h4>
 
 <div>
-  <form action="/wt-lab1/form.html">
+  <form>
     <label for="username">Userame</label>
     <input type="text" id="username" name="username" placeholder="Your name.." required>
 
@@ -87,8 +87,10 @@ div {
 </body>
 
 <script>
-    let submit = document.querySelector('#submit')
-    submit.addEventListener('click', function () {
+    let form = document.querySelector('form')
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
         let username = document.querySelector('#username').value.trim()
         let email= document.querySelector('#email').value.trim()
         let country = document.querySelector('#country').value
@@ -102,15 +104,15 @@ div {
             sessionStorage.setItem('validationMsg', 'Form validation successful.')
             document.getElementById('message').style.color = 'green'
         }
+
+        if(sessionStorage.getItem('validationMsg')){
+          let validationMsg = sessionStorage.getItem('validationMsg')
+          document.getElementById('message').innerHTML = validationMsg    
+        }
+
+        form.reset()
     })
-
-    if(sessionStorage.getItem('validationMsg')){
-        let validationMsg = sessionStorage.getItem('validationMsg')
-        document.getElementById('message').innerHTML = validationMsg
-    }
-
-    sessionStorage.removeItem('validationMsg')
-
+  
 </script>
 
 </html>
