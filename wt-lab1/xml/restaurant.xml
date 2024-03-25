@@ -1,0 +1,38 @@
+<restaurantMenu>
+    <category name="Snacks">
+        <item>
+            <name>Samosa</name>
+            <description>Bread filled with authentic spices</description>
+            <price>Rs 100</price>
+        </item>
+        <item>
+            <name>Momo</name>
+            <description>Bread filled with minced meat, served with a sweet sauce</description>
+            <price>Rs 200</price>
+        </item>
+    </category>
+    <category name="Main Course">
+        <item>
+            <name>Thakali</name>
+            <description>A popular Nepali dish with lentils, rice, and vegetables</description>
+            <price>Rs 300</price>
+        </item>
+        <item>
+            <name>Dahi Chiura</name>
+            <description>Beaten rice, served with curd and banana</description>
+            <price>Rs 450</price>
+        </item>
+    </category>
+    <category name="Desserts">
+        <item>
+            <name>Julapi</name>
+            <description>Sweet syrupy dessert served with ice cream</description>
+            <price>Rs 250</price>
+        </item>
+        <item>
+            <name>Gajar ko Halwa</name>
+            <description>Delicious carrot pudding, sweet and fresh</description>
+            <price>Rs 150</price>
+        </item>
+    </category>
+</restaurantMenu>
