@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Operations</title>
+</head>
+<body>
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="username">
+
+    <br><br>
+    <button id="setCookies">Set Cookies</button>
+    <button id="getCookies">Get Cookies</button>
+</body>
+<script>
+    let setCookies = document.getElementById('setCookies')
+    let getCookies = document.getElementById('getCookies')
+
+    setCookies.addEventListener('click', function () {
+        let username = document.querySelector('#username').value
+        if(username !== ''){
+            document.cookie = `username=${username}; expires=Thu, 7 Dec 2025 12:00:00 UTC; path=/`;
+            alert('Cookies set successful')
+        }else{
+            alert("Please write something to add in cookie")
+        }
+    })
+
+    getCookies.addEventListener('click', function () {
+        let allCookies = document.cookie
+        let cookieArray = allCookies.split(';')
+
+        let exists;
+        for (const cookie of cookieArray) {
+            if(cookie.includes('username')){
+                exists = true
+                alert("Cookie exists")
+                break;
+            }else{
+                exists = false
+            }
+        }
+        if(exists == false){
+            alert("Cookie doesnot exist")
+        }
+    })
+</script>
+</html>
