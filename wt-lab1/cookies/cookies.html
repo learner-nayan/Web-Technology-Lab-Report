@@ -18,7 +18,7 @@
     let getCookies = document.getElementById('getCookies')
 
     setCookies.addEventListener('click', function () {
-        let username = document.querySelector('#username').value
+        let username = document.querySelector('#username').value.trim()
         if(username !== ''){
             document.cookie = `username=${username}; expires=Thu, 7 Dec 2025 12:00:00 UTC; path=/`;
             alert('Cookies set successful')
